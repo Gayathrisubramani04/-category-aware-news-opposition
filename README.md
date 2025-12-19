@@ -17,36 +17,31 @@
 
 ### Project Structure
 ```
-category-aware-news-opposition/
+category-aware-news/
 ├── backend/
-│   ├── app.py                    # Flask app factory
-│   ├── config.py                 # Configuration
-│   ├── requirements.txt           # Python dependencies
-│   ├── __init__.py               # Package initializer
 │   ├── api/
-│   │   ├── __init__.py
-│   │   ├── health.py             # Health check endpoint
-│   │   └── analyze.py            # /analyze POST endpoint
+│   │   ├── analyze.py
+│   │   ├── category.py
+│   │   ├── health.py
+│   │   ├── opposition.py
+│   │   └── sentiment.py
 │   ├── services/
-│   │   ├── __init__.py
-│   │   ├── category_service.py   # Category detection logic
-│   │   ├── sentiment_service.py  # VADER sentiment analysis
-│   │   └── opposition_service.py # Opposition opinion generation
-│   ├── gateways/
-│   │   └── __init__.py           # Adapter layer placeholder
-│   ├── models/                    # (future ML models)
-│   ├── tests/
-│   │   ├── test_health.py        # Health endpoint tests
-│   │   └── test_integration_analyze.py  # Integration tests
-│   ├── scripts/
-│   │   ├── print_routes.py       # Debug helper
-│   │   └── import_analyze.py     # Dependency checker
-│   └── .venv/                     # Virtual environment
-│
-└── frontend/
-    ├── index.html                # UI markup
-    ├── style.css                 # Clean, minimal styling
-    └── script.js                 # Frontend logic (fetch, render)
+│   │   ├── category_service.py
+│   │   ├── opposition_service.py
+│   │   └── sentiment_service.py
+│   ├── __init__.py
+│   ├── app.py
+│   ├── config.py
+│   ├── requirements.txt
+│   ├── test_analyze.py
+│   └── test_services.py
+├── frontend/
+│   ├── index.html
+│   ├── script.js
+│   └── style.css
+├── run.py
+└── test_endpoints.py
+
 ```
 
 ### Architecture Principles
@@ -233,12 +228,13 @@ python -m http.server 8000
 ### Run Backend Tests
 ```bash
 cd backend
-.venv\Scripts\python.exe -m pytest -q
+python -m pytest -q
 ```
 
 **Test Files**:
-- `tests/test_health.py`: Health endpoint
-- `tests/test_integration_analyze.py`: /analyze endpoint
+  -Unit testing: Direct service function testing (test_services.py)
+  -Integration testing: Individual endpoint testing (test_endpoints.py)
+  -End-to-end testing: Complete analysis workflow testing (test_analyze.py)
 
 ### Sample Test Headlines
 
@@ -262,6 +258,7 @@ Use these headlines to test the application:
 
 ---
 
+
 ## Future Enhancements (Phase 5+)
 
 - [ ] **ML-Based Category & Sentiment**: Replace rule-based detection with trained classifiers
@@ -281,13 +278,13 @@ This project is provided as-is for educational and research purposes. See LICENS
 
 ---
 
-## Contact & Support
+📞 Support
+For issues, questions, or feedback, please open an issue in the repository.
+🙏 Acknowledgments
+VADER Sentiment Analyzer for sentiment analysis capabilities
+Flask for the lightweight web framework
+All contributors who have helped shape this project
 
-For questions, issues, or contributions:
-- Open an issue on GitHub
-- Contact the development team
+This README provides a comprehensive overview of your project, covering installation, usage, architecture, and technical details. It will help anyone understand, run, and contribute to your project.
 
----
 
-**Version**: 1.0.0 (Phase 4 — Hardened & Documented)  
-**Last Updated**: December 18, 2025
