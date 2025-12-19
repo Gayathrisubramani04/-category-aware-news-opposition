@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Category Aware News — Analyze</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>News Analyzer</h1>
+
+    <label for="inputText">Paste a headline or short article (10–5000 chars):</label>
+    <textarea id="inputText" rows="6" placeholder="Enter text here..."></textarea>
+    <div class="controls">
+      <button id="analyzeBtn">Analyze</button>
+      <span id="status" class="status"></span>
+    </div>
+
+    <section id="results" class="results hidden">
+      <h2>Results</h2>
+      <div class="result-row"><strong>Category:</strong> <span id="category">-</span></div>
+      <div class="result-row"><strong>Sentiment:</strong> <span id="sentiment">-</span></div>
+      <div class="result-row"><strong>Opposition view:</strong>
+        <div id="opposition" class="boxed">-</div>
+      </div>
+      <div class="result-row"><strong>Disclaimer:</strong>
+        <div id="disclaimer" class="muted">-</div>
+      </div>
+    </section>
+
+    <div id="error" class="error hidden"></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
